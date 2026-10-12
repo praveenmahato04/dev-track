@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: devtrack
+    runtime: node
+    buildCommand: npm install
+    startCommand: node seed.js && node server.js
+    envVars:
+      - key: NODE_VERSION
+        value: 22.14.0
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DB_PATH
+        value: /tmp/data.db

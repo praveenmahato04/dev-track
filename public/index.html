@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DevTrack</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><h1>📋 DevTrack</h1><div id="userbox" hidden><span id="uname"></span><button id="logout" class="ghost">Logout</button></div></header>
+
+<main id="auth">
+  <form id="authForm" class="card narrow">
+    <h2 id="authTitle">Login</h2>
+    <input id="name" placeholder="Full name" hidden>
+    <input id="email" type="email" placeholder="Email" required>
+    <input id="password" type="password" placeholder="Password (min 6)" required>
+    <p id="authErr" class="err"></p>
+    <button class="primary">Continue</button>
+    <button type="button" id="demo" class="ghost">Use demo account</button>
+    <p class="muted"><a href="#" id="toggle">Need an account? Register</a></p>
+  </form>
+</main>
+
+<main id="app" hidden>
+  <section class="stats" id="stats"></section>
+  <section class="card toolbar">
+    <input id="q" placeholder="🔍 Search tasks…">
+    <select id="fStatus"><option value="">All status</option><option value="todo">To do</option><option value="in_progress">In progress</option><option value="done">Done</option></select>
+    <select id="fPriority"><option value="">All priority</option><option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option></select>
+    <select id="sort"><option value="created_at:desc">Newest</option><option value="created_at:asc">Oldest</option><option value="due_date:asc">Due soonest</option><option value="priority:desc">Priority</option><option value="title:asc">Title A–Z</option></select>
+    <select id="limit"><option>5</option><option>10</option><option>20</option></select>
+    <button id="add" class="primary">+ New task</button>
+  </section>
+  <div id="list"></div>
+  <nav class="pager"><button id="prev" class="ghost">← Prev</button><span id="pageInfo"></span><button id="next" class="ghost">Next →</button></nav>
+</main>
+
+<dialog id="dlg"><form id="taskForm" method="dialog" class="card">
+  <h2 id="dlgTitle">New task</h2>
+  <input id="tTitle" placeholder="Title" required maxlength="150">
+  <textarea id="tDesc" placeholder="Description" rows="3"></textarea>
+  <div class="row">
+    <select id="tStatus"><option value="todo">To do</option><option value="in_progress">In progress</option><option value="done">Done</option></select>
+    <select id="tPriority"><option value="low">Low</option><option value="medium" selected>Medium</option><option value="high">High</option></select>
+    <input id="tDue" type="date">
+  </div>
+  <p id="taskErr" class="err"></p>
+  <div class="row"><button type="button" id="cancel" class="ghost">Cancel</button><button class="primary">Save</button></div>
+</form></dialog>
+<div id="toast"></div>
+<script src="app.js"></script>
+</body></html>
